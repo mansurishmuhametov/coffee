@@ -1,0 +1,11 @@
+<div>
+    <input type="text" [(ngModel)]="name" class="form-control famous__input" placeholder="enter name..." [(ngModel)]="name">
+    <br>
+    <button type="button" class="btn btn-success" (click)="onAddSigner()">
+        Add signer
+    </button>
+    <br>
+    <br>
+    <app-signer *ngFor="let signer of names" [name]="signer"></app-signer>
+    <!-- changes -->
+</div>
