@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IProduct } from './product';
 
 import * as _ from 'lodash';
+import { ProductService } from '../services/product.service';
 
 @Component({
     selector: 'app-product-list',
@@ -9,27 +10,17 @@ import * as _ from 'lodash';
     styleUrls: ['./product-list.component.scss']
 })
 export class ProductListComponent implements OnInit {
+    private _productService;
     pageTitle = 'Product List';
     pageTitleInfo = this.pageTitle;
-    products: IProduct[] = [
-        {
-            id: 1,
-            name: 'Elleonora',
-            code: 'gt-17',
-            rating: 2,
-            url: 'https://cdn.prognozist.ru/posts/2015-02/1423423120_dpjf.png'
-        },
-        {
-            id: 2,
-            name: 'Patricia',
-            code: 'gt-st-21',
-            rating: 5,
-            url: 'https://cdn.prognozist.ru/posts/2015-02/1423423120_dpjf.png'
-        }
-    ];
+    products: IProduct[] = [];
     filteredProducts = this.products;
     name = 'Kristina';
     isShowImage = true;
+
+    constructor(productService: ProductService) {
+        this._productService = productService;
+    }
 
     _filter: string;
     get filter(): string {
@@ -40,10 +31,15 @@ export class ProductListComponent implements OnInit {
         this.refreshProducts();
     }
 
-    constructor() {}
-
     ngOnInit(): void {
-        console.log('In OnInit');
+        this._productService.getProducts()
+            .subscribe(data => {
+                this.products = data;
+                this.refreshProducts();
+            },
+            err => {
+                //обработка ошибки
+            });
     }
 
     showImage(): void {

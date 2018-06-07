@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "name": "Elleonora",
+        "code": "gt-17",
+        "rating": 2,
+        "url": "https://cdn.prognozist.ru/posts/2015-02/1423423120_dpjf.png"
+    },
+    {
+        "id": 2,
+        "name": "Patricia",
+        "code": "gt-st-21",
+        "rating": 5,
+        "url": "https://cdn.prognozist.ru/posts/2015-02/1423423120_dpjf.png"
+    },
+    {
+        "id": 3,
+        "name": "Mariya",
+        "code": "gt-17-21",
+        "rating": 5,
+        "url": "https://cdn.prognozist.ru/posts/2015-02/1423423120_dpjf.png"
+    }
+]

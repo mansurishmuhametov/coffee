@@ -8,9 +8,9 @@ import { Router } from '@angular/router';
     styleUrls: ['./famous.component.scss']
 })
 export class FamousComponent implements OnInit {
-    creation: string = 'not created';
-    name: string = '';
-    isMessage: boolean = false;
+    creation: 'not created';
+    name: '';
+    isMessage: false;
     names: string[] = ['Jasmine Thompson', 'Elleonora Ladichenko', 'Patricia Atom'];
 
     constructor() { }
@@ -23,6 +23,6 @@ export class FamousComponent implements OnInit {
     }
 
     getColor() {
-        return this.isMessage ? 'red': 'yellow';
+        return this.isMessage ? 'red' : 'yellow';
     }
 }
